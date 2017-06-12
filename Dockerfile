@@ -1,4 +1,4 @@
-FROM fluent/fluentd:latest-onbuild
+FROM fluent/fluentd:v0.14.17-onbuild
 MAINTAINER Sander Schoot Uiterkamp
 USER root
 	

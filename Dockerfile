@@ -6,7 +6,7 @@ RUN apk --no-cache --update add \
 		ruby-dev \
 		build-base \
 		libffi-dev && \
-	gem install fluent-plugin-kubernetes_metadata_filter fluent-plugin-elasticsearch fluent-plugin-parser fluent-plugin-rewrite-tag-filter fluent-plugin-record-reformer && \
+	gem install fluent-plugin-kubernetes_metadata_filter fluent-plugin-elasticsearch fluent-plugin-parser fluent-plugin-rewrite-tag-filter fluent-plugin-record-reformer fluent-plugin-systemd systemd-journal fluent-plugin-journal-parser && \
 	apk del build-base ruby-dev libffi-dev && \
 	rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
 

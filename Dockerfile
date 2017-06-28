@@ -1,13 +1,13 @@
-FROM fluent/fluentd:v0.14.18-debian-onbuild
+FROM fluent/fluentd:ubuntu-base
 MAINTAINER Sander Schoot Uiterkamp
 USER root
-	
-RUN apt-get install --no-cache --update add \
+
+RUN apt-get update && apt-get -y install \
 		ruby-dev \
-		build-base \
+		build-essential \
 		libffi-dev && \
 	gem install fluent-plugin-kubernetes_metadata_filter fluent-plugin-elasticsearch fluent-plugin-parser fluent-plugin-rewrite-tag-filter fluent-plugin-record-reformer fluent-plugin-systemd systemd-journal fluent-plugin-journal-parser && \
-	apk del build-base ruby-dev libffi-dev && \
+	apt-get -y remove build-essential ruby-dev libffi-dev && \
 	rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
 
 WORKDIR /home/fluent

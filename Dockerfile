@@ -2,7 +2,7 @@ FROM fluent/fluentd:v0.14.18-debian-onbuild
 MAINTAINER Sander Schoot Uiterkamp
 USER root
 	
-RUN apk --no-cache --update add \
+RUN apt-get install --no-cache --update add \
 		ruby-dev \
 		build-base \
 		libffi-dev && \
